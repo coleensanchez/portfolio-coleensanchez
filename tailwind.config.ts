@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'sans-serif'],
-        body: ['Source Serif 4', 'serif'],
+        sans: ['Space Grotesk', 'Inter', 'sans-serif'],
+        body: ['IBM Plex Sans', 'Inter', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -64,9 +64,14 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "0",
+        md: "0",
+        sm: "0",
+      },
+      boxShadow: {
+        'brutal': '4px 4px 0px 0px hsl(var(--border))',
+        'brutal-lg': '8px 8px 0px 0px hsl(var(--border))',
+        'brutal-sm': '2px 2px 0px 0px hsl(var(--border))',
       },
       keyframes: {
         "accordion-down": {
@@ -88,18 +93,40 @@ export default {
         "fade-in": {
           "0%": {
             opacity: "0",
-            transform: "translateY(20px)"
+            transform: "translateY(10px)"
           },
           "100%": {
             opacity: "1",
             transform: "translateY(0)"
           }
         },
+        "slide-up": {
+          "0%": {
+            transform: "translateY(20px)",
+            opacity: "0"
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: "1"
+          }
+        },
+        "pop-in": {
+          "0%": {
+            transform: "scale(0.8)",
+            opacity: "0"
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: "1"
+          }
+        },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.6s ease-out forwards",
+        "accordion-down": "accordion-down 0.15s ease-out",
+        "accordion-up": "accordion-up 0.15s ease-out",
+        "fade-in": "fade-in 0.3s ease-out forwards",
+        "slide-up": "slide-up 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "pop-in": "pop-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards",
       },
     },
   },

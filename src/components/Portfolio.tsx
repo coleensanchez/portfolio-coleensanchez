@@ -41,13 +41,13 @@ const Portfolio = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="portfolio" className="py-20 px-6 md:px-12 lg:px-24 bg-card">
+    <section id="portfolio" className="py-20 px-6 md:px-12 lg:px-24 bg-muted border-y-4 border-border">
       <div className="max-w-6xl mx-auto space-y-12">
-        <div className="space-y-2">
-          <p className="text-sm font-sans tracking-widest text-muted-foreground uppercase">
+        <div className="space-y-3">
+          <p className="text-xs font-bold font-mono tracking-widest text-foreground uppercase border-2 border-border inline-block px-3 py-1 bg-secondary text-secondary-foreground">
             Selected Work
           </p>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold">Portfolio</h2>
+          <h2 className="text-4xl md:text-5xl font-sans font-bold uppercase">Portfolio</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -55,29 +55,29 @@ const Portfolio = () => {
             <Card
               key={project.id}
               onClick={() => navigate(`/project/${project.id}`)}
-              className="group cursor-pointer overflow-hidden border-border hover:border-foreground transition-all duration-300 animate-fade-in"
+              className="group cursor-pointer overflow-hidden border-4 border-border bg-background shadow-brutal hover:shadow-brutal-lg hover:-translate-y-1 transition-all duration-200 animate-pop-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="p-8 space-y-4">
                 <div className="flex justify-between items-start">
                   <div className="space-y-2">
-                    <p className="text-xs font-sans tracking-widest text-muted-foreground uppercase">
+                    <p className="text-xs font-bold font-mono tracking-widest text-muted-foreground uppercase">
                       {project.role}
                     </p>
-                    <h3 className="text-2xl font-serif font-semibold group-hover:text-destructive transition-colors">
+                    <h3 className="text-2xl font-sans font-bold uppercase leading-tight group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
                   </div>
-                  <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-destructive transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <ArrowUpRight className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
-                <p className="font-body text-secondary leading-relaxed">
+                <p className="font-body text-foreground leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 pt-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-sans px-3 py-1 bg-accent/50 rounded-full"
+                      className="text-xs font-bold font-mono px-3 py-1.5 bg-muted border-2 border-border uppercase"
                     >
                       {tag}
                     </span>
